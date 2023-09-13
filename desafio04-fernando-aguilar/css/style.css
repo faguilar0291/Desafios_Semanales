@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #1e8482;
+    color: #ece956;
+}
+
+header {
+    text-align: center;
+    height: 3vh;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-size: 1.5em;
+    font-family: 'Franklin Gothic Medium', 
+    'Arial Narrow', 
+    Arial, 
+    sans-serif;
+}
+
+.contenedor-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+img {
+    border: solid 5px white;
+    margin-bottom: 0.5%;
+    margin-left: 0.5%;
+}

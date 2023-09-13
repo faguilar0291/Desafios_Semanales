@@ -1,0 +1,124 @@
+body {
+    color: rgb(255, 255, 255);
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    background: url(../images/fondo1.jpg);
+    background-size: 100%;
+    background-repeat:repeat-y
+}
+
+h1, h2 {
+    background-color: rgba(104, 15, 206, 0.678);
+    color: rgb(255, 255, 255);
+    width: 90%;
+    text-align: center;
+    border: solid;
+    border-radius: 5% / 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+video {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+}
+
+h3 {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+article {
+    background-color: rgba(104, 15, 206, 0.678);
+    color: rgb(255, 255, 255);
+    border: solid;
+    border-radius: 4%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 10%;
+    margin-top: 20%;
+    margin-bottom: 30%;
+}
+
+.comprar {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: rgba(236, 221, 10, 0.678);
+    text-decoration: none;
+    margin-left: 40%;
+    margin-right: auto;
+    width: 100%;
+    border-radius: 7px;
+    padding: 1.5%;
+}
+
+a:hover {
+    background-color: rgba(10, 221, 236, 0.678);
+    cursor: pointer;
+}
+
+img {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    margin-top: 10%;
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: show;
+
+    animation-range: entry 15% cover 80%;
+    animation-fill-mode: both;
+}
+
+
+p {
+    animation: blur-in-expand 0.4s linear both
+}
+
+@keyframes blur-in-expand {
+    0% {
+        transform: scale(0);
+        filter: blur(12px);
+        opacity: 0
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        scale: 15%;
+    }
+
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+footer {
+    background-color: rgba(104, 15, 206, 0.678);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border: solid;
+    border-radius: 5% / 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
