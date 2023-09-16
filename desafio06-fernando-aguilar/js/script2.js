@@ -47,7 +47,7 @@ while (catSteps > 0 && catSteps <= 10) {
 
     }
 
-    for (i = 0; i < catNum; i++){
+    for (i = 1; i <= catNum; i++){
         console.log("Gato #", i, ":", cats, steps);
     }
 
