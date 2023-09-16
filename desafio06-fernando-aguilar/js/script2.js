@@ -6,36 +6,46 @@ let catSteps = prompt("Ingrese la cantidad de pasos que desea ver: ",
 "Para finalizar ingrese 0 o un valor mayor a 10");
 console.log("El valor ingresado para la cantidad de pasos es:", catSteps);
 
-let cats;
+let cats = "🐈";
 let steps;
 
-switch(catNum) {
+
+switch(catSteps) {
     case "1":
-        cats = "🐈"
+        steps = "🐾"
         break;
     case "2":
-        cats = "🐈🐈"
+        steps = "🐾🐾"
         break;
     case "3":
-        cats = "🐈🐈🐈"
+        steps = "🐾🐾🐾"
         break;
     case "4":
-        cats = "🐈🐈🐈🐈"
+        steps = "🐾🐾🐾🐾"
         break;
     case "5":
-        cats = "🐈🐈🐈🐈🐈"
+        steps = "🐾🐾🐾🐾🐾"
         break;
-    case "":
+    case "6":
+        steps = "🐾🐾🐾🐾🐾🐾"
         break;
-    case "":
+    case "7":
+        steps = "🐾🐾🐾🐾🐾🐾🐾"
         break;
-    case "":
+    case "8":
+        steps = "🐾🐾🐾🐾🐾🐾🐾🐾"
         break;
-    case "":
+    case "9":
+        steps = "🐾🐾🐾🐾🐾🐾🐾🐾🐾"
         break;
-    case "":
+    case "10":
+        steps = "🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾"
+        break;
+    default:
         break;
 
 }
 
-
+for (i = 0; i < catNum; i++){
+    console.log("Gato #", i, ":", cats, steps);
+}
