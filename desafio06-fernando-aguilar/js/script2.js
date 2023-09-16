@@ -9,43 +9,51 @@ console.log("El valor ingresado para la cantidad de pasos es:", catSteps);
 let cats = "🐈";
 let steps;
 
+while (catSteps > 0 && catSteps <= 10) {
 
-switch(catSteps) {
-    case "1":
-        steps = "🐾"
-        break;
-    case "2":
-        steps = "🐾🐾"
-        break;
-    case "3":
-        steps = "🐾🐾🐾"
-        break;
-    case "4":
-        steps = "🐾🐾🐾🐾"
-        break;
-    case "5":
-        steps = "🐾🐾🐾🐾🐾"
-        break;
-    case "6":
-        steps = "🐾🐾🐾🐾🐾🐾"
-        break;
-    case "7":
-        steps = "🐾🐾🐾🐾🐾🐾🐾"
-        break;
-    case "8":
-        steps = "🐾🐾🐾🐾🐾🐾🐾🐾"
-        break;
-    case "9":
-        steps = "🐾🐾🐾🐾🐾🐾🐾🐾🐾"
-        break;
-    case "10":
-        steps = "🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾"
-        break;
-    default:
-        break;
+    switch(catSteps) {
+        case "1":
+            steps = "🐾"
+            break;
+        case "2":
+            steps = "🐾🐾"
+            break;
+        case "3":
+            steps = "🐾🐾🐾"
+            break;
+        case "4":
+            steps = "🐾🐾🐾🐾"
+            break;
+        case "5":
+            steps = "🐾🐾🐾🐾🐾"
+            break;
+        case "6":
+            steps = "🐾🐾🐾🐾🐾🐾"
+            break;
+        case "7":
+            steps = "🐾🐾🐾🐾🐾🐾🐾"
+            break;
+        case "8":
+            steps = "🐾🐾🐾🐾🐾🐾🐾🐾"
+            break;
+        case "9":
+            steps = "🐾🐾🐾🐾🐾🐾🐾🐾🐾"
+            break;
+        case "10":
+            steps = "🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾"
+            break;
+        default:
+            break;
 
+    }
+
+    for (i = 0; i < catNum; i++){
+        console.log("Gato #", i, ":", cats, steps);
+    }
+
+    break;
 }
 
-for (i = 0; i < catNum; i++){
-    console.log("Gato #", i, ":", cats, steps);
+if (catSteps < 1 || catSteps > 10){
+    alert("Finalizamos el juego!")
 }
