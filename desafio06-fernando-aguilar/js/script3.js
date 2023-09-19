@@ -56,6 +56,8 @@ while (catSteps > 0 && catSteps <= 10) {
         }
     }
 
+    alert("Excelente! Para volver a jugar recarga la página!")
+
     break;
 }
 

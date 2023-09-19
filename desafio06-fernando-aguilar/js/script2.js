@@ -51,6 +51,8 @@ while (catSteps > 0 && catSteps <= 10) {
         console.log("Gato #", i, ":", cats, steps);
     }
 
+    alert("Excelente! Para volver a jugar recarga la página!")
+
     break;
 }
 
