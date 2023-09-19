@@ -90,5 +90,6 @@ while (catNum > 0 && catNum <= 10) {
 };
 
 if (catNum < 1 || catNum > 10){
-        alert("Finalizamos el juego!")
-}
+    console.log("Finalizamos el juego!");
+        alert("Finalizamos el juego!");
+};
