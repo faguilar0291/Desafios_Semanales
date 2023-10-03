@@ -123,7 +123,6 @@ function compararNombres () {
                 console.log("No hubo coincidencias de nombres entre", 
                 nombres[i].textContent, "y",
                 nombres[j].textContent);
-                break;
             }
         }
     }
@@ -142,7 +141,6 @@ function compararApellidos() {
                 console.log("No hubo coincidencias de apellidos entre",
                     apellidos[i].textContent, "y",
                     apellidos[j].textContent);
-                break;
             }
         }
     }
