@@ -3,145 +3,81 @@
 let title = document.querySelector("title") //Buscamos el texto dentro del Title
 console.log(title.innerHTML) // Mostramos por consola el texto dentro del Title
 
-let nombres = document.querySelectorAll(".nombres");
-let apellidos = document.querySelectorAll(".apellidos");
+//Obtenemos todos los datos de las listas
+const datosListas = document.querySelectorAll("dd");
 
-// Creamos una variable para cargar los datos del 1er integrante
+//verificando los datos
+// console.log(datosListas[0].innerHTML.length)
 
-let integrante1 = nombres[0].innerHTML 
-+ " " + nombres[1].innerHTML + " " 
-    + apellidos[0].innerHTML + " "
-    + apellidos[1].innerHTML;
+// Creamos unas constantes para cargar los datos de los  integrantes
 
-// Creamos una variable para cargar los datos del 2er integrante
+const datosIntegrante1 = [datosListas[0], datosListas[1], datosListas[2], datosListas[3]];
+const datosIntegrante2 = [datosListas[4], datosListas[5], datosListas[6], datosListas[7]];
 
-let integrante2 = nombres[2].innerHTML
-    + " " + nombres[3].innerHTML + " "
-    + apellidos[2].innerHTML + " "
-    + apellidos[3].innerHTML;
+// Asignamos a las variables los datos completos listos para mostrar
+let integrante1 = ("Integrante 1:" + '"' +mostrarDatos(datosIntegrante1) + '"');
+let integrante2 = ("Integrante 2:" + '"' + mostrarDatos(datosIntegrante2) + '"');
 
-//Verificamos que los datos se cargan correctamente
+//Mostramos los datos en consola
+console.log(integrante1 + "\n" + integrante2);
 
-// console.log("Datos integrante 1 -->", integrante1);
-// console.log("Datos integrante 2 -->", integrante2);
+console.log(datosIntegrante1)
 
+//Comparamos los datos de ambos integrantes
+compararDatos(datosIntegrante1, datosIntegrante2);
 
-//Mostramos por consola los datos de cada integrante en un recuadro
-console.log("","-----", "\n", "Integrante 1:", integrante1, "\n", "Integrante 2:", integrante2, "\n", "-----");
+// Definimos las funciones que vamos a utilizar en el ejercicio
 
-// Verificamos si los nombres de los integrantes se repiten
-let color;
+function mostrarDatos(datos){
+    let longitudDatos = "";
+    let nombre = "";
+    let apellido = "";
 
-compararNombres(); // esta función reemplaza las líneas comentadas a continuación
-
-// if (nombres[0].textContent === nombres[2].textContent){
-//     console.log("Hubo coincidencias de nombres: ", nombres[0].textContent);
-//     color = window.prompt("Los nombres se repiten",
-//     "Ingrese un color para resaltar las coincidencias");
-//     nombres[0].style.backgroundColor = color;
-//     nombres[2].style.backgroundColor = color;
-
-// } else if (nombres[1].textContent === nombres[3].textContent){
-//     console.log("Hubo coincidencias de nombres: ", nombres[1].textContent);
-//     color = window.prompt("Los nombres se repiten",
-//     "Ingrese un color para resaltar las coincidencias");
-//     nombres[1].style.backgroundColor = color;
-//     nombres[3].style.backgroundColor = color;
-
-// } else if (nombres[0].textContent === nombres[3].textContent){
-//     console.log("Hubo coincidencias de nombres: ", nombres[0].textContent);
-//     color = window.prompt("Los nombres se repiten",
-//     "Ingrese un color para resaltar las coincidencias");
-//     nombres[0].style.backgroundColor = color;
-//     nombres[3].style.backgroundColor = color;
-
-// } else if (nombres[1].textContent === nombres[2].textContent){
-//     console.log("Hubo coincidencias de nombres: ", nombres[1].textContent);
-//     color = window.prompt("Los nombres se repiten",
-//     "Ingrese un color para resaltar las coincidencias");
-//     nombres[1].style.backgroundColor = color;
-//     nombres[2].style.backgroundColor = color;
-// } else {
-//    console.log("No se repite ningún nombre")
-// }
-
-let compareApellidos = window.confirm("Desea comparar los apellidos?");
-
-//console.log(compareApellidos)
-
-if (compareApellidos){
-    console.log("Vamos a comparar los apellidos");
-
-    compararApellidos(); // esta función reemplaza las líneas comentadas a continuación
-
-    // if (apellidos[0].textContent === apellidos[2].textContent) {
-    //     console.log("Hubo coincidencias de apellidos: ", apellidos[0].textContent);
-    //     color = window.prompt("Los apellidos se repiten",
-    //         "Ingrese un color para resaltar las coincidencias");
-    //     apellidos[0].style.backgroundColor = color;
-    //     apellidos[2].style.backgroundColor = color;
-
-    // } else if (apellidos[1].textContent === apellidos[3].textContent) {
-    //     console.log("Hubo coincidencias de apellidos: ", apellidos[1].textContent);
-    //     color = window.prompt("Los apellidos se repiten",
-    //         "Ingrese un color para resaltar las coincidencias");
-    //     apellidos[1].style.backgroundColor = color;
-    //     apellidos[3].style.backgroundColor = color;
-
-    // } else if (apellidos[0].textContent === apellidos[3].textContent) {
-    //     console.log("Hubo coincidencias de apellidos: ", apellidos[0].textContent);
-    //     color = window.prompt("Los apellidos se repiten",
-    //         "Ingrese un color para resaltar las coincidencias");
-    //     apellidos[0].style.backgroundColor = color;
-    //     apellidos[3].style.backgroundColor = color;
-
-    // } else if (apellidos[1].textContent === apellidos[2].textContent) {
-    //     console.log("Hubo coincidencias de apellidos: ", apellidos[1].textContent);
-    //     color = window.prompt("Los apellidos se repiten",
-    //         "Ingrese un color para resaltar las coincidencias");
-    //     apellidos[1].style.backgroundColor = color;
-    //     apellidos[2].style.backgroundColor = color;
-    // } else {
-    //     console.log("No se repite ningún apellido")
-    // }
-} else {
-    console.log("No vamos a comparar los apellidos")
-}
-
-
-
-function compararNombres () {
-    for (let i = 0; i <= 1; i++){
-        for (let j = 2; j <= 3; j++){
-            if (nombres[i].textContent === nombres[j].textContent){
-                console.log("Hubo coincidencias de nombres: ", nombres[i].textContent);
-                color = window.prompt("Los nombres se repiten",
-                "Ingrese un color para resaltar las coincidencias");
-                nombres[i].style.backgroundColor = color;
-                nombres[j].style.backgroundColor = color;
-            } else {
-                console.log("No hubo coincidencias de nombres entre", 
-                nombres[i].textContent, "y",
-                nombres[j].textContent);
-            }
+    for (let i = 0; i < datos.length; i++){
+        longitudDatos = datos[i].innerHTML.length;
+        if (longitudDatos > 0 & (i == 0 || i == 1)){
+            nombre += datos[i].innerHTML + " ";
+        }
+        if (longitudDatos > 0 & (i == 2 || i == 3)) {
+            apellido += datos[i].innerHTML + " ";
         }
     }
+
+    return nombre + apellido.trim().toUpperCase();
 }
 
-function compararApellidos() {
-    for (let i = 0; i <= 1; i++) {
-        for (let j = 2; j <= 3; j++) {
-            if (apellidos[i].textContent === apellidos[j].textContent) {
-                console.log("Hubo coincidencias de apellidos: ", apellidos[i].textContent);
-                color = window.prompt("Los apellidos se repiten",
-                    "Ingrese un color para resaltar las coincidencias");
-                apellidos[i].style.backgroundColor = color;
-                apellidos[j].style.backgroundColor = color;
+
+function compararDatos(datos1,datos2){
+    let color = "";
+    let compararApellidos = "";
+
+    for (let i = 0; i < (datos1.length - 2); i++){
+        if (datos1[i].innerHTML === datos2[i].innerHTML){
+            color = window.prompt("Ingrese un color para resaltar las coincidencias!", "En inglés o valores hexa, ej: #001100 ")
+            datos1[i].style.color = color;
+            datos2[i].style.color = color;
+            console.log("Hubo coincidencias de nombres entre " + datos1[i].innerHTML + " y " + datos2[i].innerHTML);
+        } else {
+            console.log("No hubo coincidencias de nombres entre " + datos1[i].innerHTML + " y " + datos2[i].innerHTML)
+        }
+
+    }
+
+    compararApellidos = window.confirm("Desea comparar los apellidos?");
+
+    if (compararApellidos) {
+        console.log("Vamos a comparar los apellidos");
+        for (let i = 2; i < datos1.length; i++) {
+            if (datos1[i].innerHTML === datos2[i].innerHTML) {
+                console.log("Hubo coincidencias de apellidos entre " + datos1[i].innerHTML + " y " + datos2[i].innerHTML);
+                color = window.prompt("Ingrese un color para resaltar las coincidencias!", "En inglés o valores hexa, ej: #001100 ")
+                datos1[i].style.color = color;
+                datos2[i].style.color = color;
             } else {
-                console.log("No hubo coincidencias de apellidos entre",
-                    apellidos[i].textContent, "y",
-                    apellidos[j].textContent);
+                console.log("No hubo coincidencia de apellidos entre " + datos1[i].innerHTML + " y " + datos2[i].innerHTML);
             }
         }
+    } else {
+        console.log("No vamos a comparar los apellidos")
     }
 }
