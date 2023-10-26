@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;600&display=swap');
+/*
+Colores
+#a1f00f
+#e8a944
+#d014f1c4
+#15233ec6
+*/
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1f2023;
+    background-image: url("../images/retro2.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    color: #f8d701;
+    font-family: 'Zilla Slab', serif;
+    font-size: small;
+}
+
+header,
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* cajas de los filedset */
+.datos-personales,
+.datos-de-contacto {
+    border: 5px inset #e8a944;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #244937c8;
+    width: 50vw;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.actividades {
+    border: 5px inset #e8a944;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #244937c8;
+    color: white;
+    font-size: 1.5em;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botones-superiores {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.cambiar-estilos,
+.estilos-aleatorios {
+    background-color: #244937c8;
+    color: #e8a944;
+    height: 38px;
+    width: 110px;
+    border: inset 2px #e8a944;
+}
+
+.estilos-aleatorios {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.estilos-aleatorios img {
+    height: 25px;
+}
+
+.titulo {
+    width: 50vw;
+}
+
+h1 {
+    background-color: #244937c8;
+    font-family: 'Pixelify Sans', sans-serif;
+    border: 8px inset #e8a944;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 3.5em;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+}
+
+legend {
+    width: fit-content;
+    font-size: 1em;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    margin-left: 7px;
+    background: #244937c8;
+    border: 1.5px inset #e8a944;
+    color: white;
+}
+
+
+div {
+    color: #e8a944;
+    width: 30vw;
+    margin-top: 10px;
+}
+
+.separador {
+    border-top: 10px dotted #e8a944;
+    width: 20vw;
+}
+
+.datos textarea {
+    min-width: 30vw;
+    max-width: 30vw;
+    min-height: 60px;
+    max-height: 120px;
+}
+
+.sexos input {
+    height: 10px;
+    margin-top: 4px;
+}
+
+input[type="email"],
+input[type="tel"] {
+    text-align: end;
+}
+
+input {
+    color: #1f2023;
+}
+
+.actividades input {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.condiciones {
+    color: white;
+    background-color: #244937c8;
+    margin-bottom: 10px;
+    width: 120px;
+    border: inset 2px #e8a944;
+}
+
+.condiciones input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.botones {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50vw;
+}
+
+.botones input {
+    background-color: #244937c8;
+    color: #e8a944;
+    height: 38px;
+    width: 110px;1vh;
+    border: inset 2px #e8a944;
+}
+
+
+footer p {
+    display: flex;
+    justify-content: center;
+    background-color: #15233ec6;
+}
+
+/* A continuación los focus*/
+
+fieldset:focus-within {
+    background-color: #2a373fbf;
+}
+
+input:focus,
+textarea:focus {
+    background-color: #1f2023;
+    color: #f8e401;
+}
+
+.condiciones:focus-within {
+    background-color: #2a373fbf;
+}
+/* A continuación los hover*/
+
+
+
+.botones input:hover {
+    background-color: #1f2023;
+    color: #f8e401;
+    border: inset 1px #f8e401;
+}
+
+.cambiar-estilos:hover,
+.estilos-aleatorios:hover {
+    background-color: #1f2023;
+    color: #f8e401;
+    border: inset 1px #f8e401;
+}

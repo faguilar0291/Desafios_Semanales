@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilos.css" class="hojas-de-estilos">
+    <link rel="stylesheet" href="./css/estilos-retro.css" class="hojas-de-estilos">
+    <link rel="stylesheet" href="./css/estilos-futuro.css" class="hojas-de-estilos">
+    <title>Afiliación</title>
+</head>
+<body>
+    <header>
+        <div class="titulo">
+            <h1>Vení al Gym 💪🏼</h1>
+        </div>
+        <div class="botones-superiores">
+            <button class="cambiar-estilos">Cambiar estilos</button>
+            <button class="estilos-aleatorios"><img src="./images/bolsa-de-dulces.png" alt=""></button>
+        </div>
+    </header>
+    <main>
+        <fieldset class="datos-personales">
+            <legend>🙋🏼‍♂️ Datos personales 👀</legend>
+            <div class="datos">
+                <label for="id-nombre" id="label-nombre">Nombre: *</label>
+                <input type="text" id="id-nombre" name="nombre" maxlength="20" required>
+            </div>
+            <div class="datos">
+                <label for="id-apellido" id="label-apellido">Apellido: *</label>
+                <input type="text" id="id-apellido" name="apellido" maxlength="20" required>
+            </div>
+            <div class="datos">
+                <label for="id-documento" id="label-documento">Documento: *</label>
+                <input type="text" id="id-documento" name="documento" maxlength="8" required>
+            </div>
+            <div class="datos">
+                <label for="id-nacionalidad">Nacionalidad: *</label>
+                <select name="Nacionalidad" id="id-nacionalidad">
+                    <option value="seleccionar">- Seleccionar -</option>
+                    <option value="argentina">Argentina</option>
+                    <option value="brasileña">Brasil</option>
+                    <option value="uruguaya">Uruguay</option>
+                    <option value="otra">Otra</option>
+                </select>
+            </div>
+            <div class="datos">
+                <label for="caja-de-texto">Contanos un poco de vos...</label>
+                <textarea name="caja-de-texto" id="id-caja-de-texto" cols="30" rows="2"></textarea>
+            </div>
+            <div class="datos">
+                <p>Sexo: *</p>
+                <div class="sexos">
+                    <input type="radio" name="sexo-1" id="id-femenino" checked>
+                    <label for="id-femenino">Feminino</label>
+                    <input type="radio" name="sexo-2" id="id-masculino">
+                    <label for="id-masculino">Masculino</label>
+                    <input type="radio" name="sexo-3" id="id-otro">
+                    <label for="id-otro">Otro</label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="separador"></div>
+        <fieldset class="datos-de-contacto">
+            <legend>📱 Datos de contacto 📧</legend>
+            <div class="datos">
+                <label for="id-telefono">Teléfono: </label>
+                <input type="tel" name="telefono" id="id-telefono" placeholder="Código de área y número">
+            </div>
+            <div class="datos">
+                <label for="id-correo">Dirección de correo electrónico: *</label>
+                <input type="email" name="correo" id="id-correo" placeholder="mail@mail.com">
+        </fieldset>
+        <div class="separador"></div>
+        <fieldset class="actividades">
+            <legend>🚴🏼‍♂️ Actividades 🤸🏼‍♂️</legend>
+            <p>Por favor, indicá cuáles actividades te interesan</p>
+            <p>Sede Palermo:</p>
+            <input type="checkbox" name="basquet" id="id-basquet">
+            <label for="id-basquet">Básquet</label>
+            <input type="checkbox" name="boxeo" id="id-boxeo">
+            <label for="id-boxeo">Boxeo</label>
+            <input type="checkbox" name="futbol" id="id-futbol">
+            <label for="id-futbol">Fútbol</label>
+            <input type="checkbox" name="tenis" id="id-tenis">
+            <label for="id-tenis">Tenis</label>
+            <p>Sede Rosario:</p>
+            <input type="checkbox" name="basquet" id="id-basquet">
+            <label for="id-basquet">Básquet</label>
+            <input type="checkbox" name="boxeo" id="id-boxeo">
+            <label for="id-boxeo">Boxeo</label>
+            <input type="checkbox" name="futbol" id="id-futbol">
+            <label for="id-futbol">Fútbol</label>
+            <input type="checkbox" name="tenis" id="id-tenis">
+            <label for="id-tenis">Tenis</label>
+        </fieldset>
+        <section class="section-condiciones">
+            <div class="condiciones">
+                <input type="checkbox" name="condiciones" id="id-condiciones">
+                <label for="id-condiciones">Acepto las condiciones *</label>
+            </div>
+            <div class="condiciones">
+                <input type="checkbox" name="novedades" id="id-novedades">
+                <label for="id-novedades">Deseo recibir novedades</label>
+            </div>
+            <p>*: campo obligatorio</p>
+
+        </section>
+        <section class="botones">
+            <input type="submit" name="validación" value="Iniciar afiliación" id="id-afiliacion">
+            <input type="reset" name="restablecer" value="Restablecer" id="id-restablecer" onclick="restablecerFormulario()">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Todos los derechos reservados 2023</p>
+    </footer>
+    <script src="./js/app.js"></script>
+</body>
+</html>
