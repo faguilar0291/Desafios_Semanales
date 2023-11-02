@@ -1,0 +1,19 @@
+@mixin cajas() {
+    width: 80%;
+    margin: 20px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+@mixin cajasDiv() {
+    width: 200px;
+    height: 200px;
+    border: 10px solid #000;
+    transition: background-position .9s linear 2s, border-bottom-color 1.2s, background-color .5s;
+    transition-delay: .4s;
+    background-color: #000;
+    background-position: -180px -40px;
+    background-repeat: no-repeat;
+}
