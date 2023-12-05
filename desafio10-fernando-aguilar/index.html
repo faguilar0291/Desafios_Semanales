@@ -14,34 +14,38 @@
 <body>
     <header class="header">
         <div class="header__div">
-            <span class="header__p">Bienvenidos a la Calculadora Básica!</span>
+            <span class="header__span">Bienvenidos a la Calculadora Básica!</span>
         </div>
     </header>
     <main class="main">
         <div class="calculator">
-            <div class="calculator__display">0</div>
+            <div class="calculator__display">
+                <div class="display--initial-value"></div>
+                <div class="display--final-value"></div>
+            </div>
             <div class="calculator__keys">
-                <button class="key key--add">+</button>
-                <button class="key key--substract">-</button>
-                <button class="key key--divide">÷</button>
-                <button class="key key--multiply">&times;</button>
-                <button class="key key--number-0">7</button>
-                <button class="key key--number-1">8</button>
-                <button class="key key--number-2">9</button>
-                <button class="key key--number-3">4</button>
-                <button class="key key--number-4">5</button>
-                <button class="key key--number-5">6</button>
-                <button class="key key--number-6">1</button>
-                <button class="key key--number-7">2</button>
-                <button class="key key--number-8">3</button>
-                <button class="key key--number-9">0</button>
-                <button class="key key--clear">AC</button>
-                <button class="key key--equal">=</button>
+                <button class="key key--add operator" value="add">+</button>
+                <button class="key key--substract operator" value="substract">-</button>
+                <button class="key key--divide operator" value="divide">÷</button>
+                <button class="key key--multiply operator" value="multiply">&times;</button>
+                <button class="key key--number">7</button>
+                <button class="key key--number">8</button>
+                <button class="key key--number">9</button>
+                <button class="key key--number">4</button>
+                <button class="key key--number">5</button>
+                <button class="key key--number">6</button>
+                <button class="key key--number">1</button>
+                <button class="key key--number">2</button>
+                <button class="key key--number">3</button>
+                <button class="key key--number">0</button>
+                <button class="key key--clear" onclick="display.allClear()">AC</button>
+                <button class="key key--equal" value="equal">=</button>
             </div>
         </div>
     </main>
     <footer class="footer">
         <p> &copy; 2023 - Todos los derechos reservados - Fernando Aguilar</p>
     </footer>
+    <script src="./js/script.js"></script>
 </body>
 </html>
