@@ -7,9 +7,9 @@
     Suma, Resta, Multiplicaciòn y División">
     <meta name="author" content="Fernando Rodrigo Aguilar Dorado">
     <meta name="about" content="Ejercio 10 de Practica - Bootcamp Fullstack 2023 Educación IT">
-    <link rel="stylesheet" href="./css/style.css">
-
-    <title>Desafio 10 - Fernando Aguilar</title>
+    <title>Desafio 10 - Calculadora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces&display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet" />
 </head>
 <body>
     <header class="header">
@@ -17,35 +17,41 @@
             <span class="header__span">Bienvenidos a la Calculadora Básica!</span>
         </div>
     </header>
-    <main class="main">
-        <div class="calculator">
-            <div class="calculator__display">
-                <div class="display--initial-value"></div>
-                <div class="display--final-value"></div>
-            </div>
-            <div class="calculator__keys">
-                <button class="key key--add operator" value="add">+</button>
-                <button class="key key--substract operator" value="substract">-</button>
-                <button class="key key--divide operator" value="divide">÷</button>
-                <button class="key key--multiply operator" value="multiply">&times;</button>
-                <button class="key key--number">7</button>
-                <button class="key key--number">8</button>
-                <button class="key key--number">9</button>
-                <button class="key key--number">4</button>
-                <button class="key key--number">5</button>
-                <button class="key key--number">6</button>
-                <button class="key key--number">1</button>
-                <button class="key key--number">2</button>
-                <button class="key key--number">3</button>
-                <button class="key key--number">0</button>
-                <button class="key key--clear" onclick="display.allClear()">AC</button>
-                <button class="key key--equal" value="equal">=</button>
+    <main>
+        <div class="container">
+            <div class="calculadora">
+                <div class="calculadora__teclas">
+                    <div class="display">
+                        <div id="valor-anterior"></div>
+                        <div id="valor-actual"></div>
+                    </div>
+                    <button class="teclas col-2" onclick="display.borrarTodo()">C</button>
+                    <button class="teclas" onclick="display.borrar()">&larr;</button>
+                    <button class="teclas operador" value="dividir">%</button>
+                    <button class="teclas numero">7</button>
+                    <button class="teclas numero">8</button>
+                    <button class="teclas numero">9</button>
+                    <button class="teclas operador" value="multiplicar">X</button>
+                    <button class="teclas numero">4</button>
+                    <button class="teclas numero">5</button>
+                    <button class="teclas numero">6</button>
+                    <button class="teclas operador" value="restar">-</button>
+                    <button class="teclas numero">1</button>
+                    <button class="teclas numero">2</button>
+                    <button class="teclas numero">3</button>
+                    <button class="teclas operador" value="sumar">+</button>
+                    <button class="teclas col-2 numero">0</button>
+                    <button class="teclas numero">.</button>
+                    <button class="teclas operador" value="igual">=</button>
+                </div>
             </div>
         </div>
     </main>
     <footer class="footer">
-        <p> &copy; 2023 - Todos los derechos reservados - Fernando Aguilar</p>
+        <p> &copy; Todos los derechos reservados - Hecho por Fernando Aguilar</p>
     </footer>
-    <script src="./js/script.js"></script>
+    <script src="./js/display.js" type="text/javascript"></script>
+    <script src="./js/calculadora.js" type="text/javascript"></script>
+    <script src="./js/script.js" type="text/javascript" defer></script>
 </body>
 </html>
