@@ -1,0 +1,189 @@
+@use "./variables" as var;
+@use "./mixins" as mix;
+
+.hero {
+    background: url(../img/home.jpg) center;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* Menu Header */
+
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+
+    .header-wrap {
+        display: flex;
+        justify-content: space-between;
+        padding: 1vh;
+        background-color: #fff;
+        z-index: 999;
+
+        .wrap-logo-header {
+            display: flex;
+            align-items: center;
+            flex-basis: 15%;
+
+            .logo-header {
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: #222;
+            }
+
+        }
+    }
+
+
+    .wrap-nav-header {
+        display: flex;
+        flex-basis: 50%;
+
+        .nav-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            #check {
+                display: none;
+            }
+
+            .main-menu {
+                display: flex;
+                width: 100%;
+                z-index: 99;
+                margin: 0;
+                padding: 0;
+                justify-content: space-between;
+                font-size: 1.1rem;
+
+                #nav-main-contact{
+                    display: flex;
+                    align-items: center;
+                    padding: 0.5rem 1rem;
+                    background-color: #ffc300;
+                    color: #fff;
+                }
+
+                .menu-item {
+                    margin: .75rem;
+                    display: flex;
+
+                    a {
+                        margin: .5rem 1rem;
+                        color: #222;
+                    }
+
+                    a:hover {
+                        color: #ffc300;
+                    }
+
+                }
+            }
+
+            .checkbtn {
+
+                .toggle-menu {
+                    display: none;
+                    background-color: #fff;
+                    border: none;
+                    z-index: 999;
+
+                    img {
+                        width: 27px;
+                        z-index: 99;
+                        background-color: #ffc300;
+                    }
+
+                }
+            }
+
+        }
+    }
+
+    @media (min-width: 880px){
+        .header-wrap {
+            padding: 0.5rem;
+        }
+    }
+    
+}
+
+@media (max-width: 768px){
+    .main-header {
+        margin-bottom: 4rem;
+
+        .header-wrap {
+            position: fixed;
+            width: 100%;
+            background-color: #fff;
+            padding: 0;
+            top: 0;
+            z-index: 9999;
+            height: 60px;
+
+
+            .wrap-logo-header {
+                position: fixed;
+                z-index: 999;
+                top: 3%;
+                left: 3%;
+            }
+
+            .wrap-nav-header {
+
+
+                .nav-header {
+
+                    #check:checked ~ ul {
+                        display: flex;
+                        z-index: 9;
+                        flex-flow: column;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        top: 0;
+                        font-size: 2rem;
+                    }
+    
+                    .checkbtn {
+
+                        position: fixed;
+                        right: 3%;
+                        top: 3%;
+                        z-index: 9999;
+    
+                        .toggle-menu {
+                            display: flex;
+                        }
+                    }
+    
+                    .main-menu {
+                        display: none;
+                        left: 0;
+                        margin: 0;
+                        padding: 0;
+                        position: fixed;
+                        background-color: #ffffff85;
+    
+                        .menu-item {
+    
+                            #nav-main-contact {
+                                
+                                left: 0;
+                                margin: 0;
+                                padding: 0;
+                            }
+                        }
+                    }
+    
+                }
+            }
+
+        }
+
+    }
+
+}
