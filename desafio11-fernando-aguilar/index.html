@@ -3,155 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aplicación de pedidos de comida en línea">
-    <meta name="author" content="Fernando Rodrigo Aguilar Dorado">
-    <meta name="about" content="Ejercio 11 de Practica - Bootcamp Fullstack 2023 Educación IT">
-    <title>Desafio 11 - Pedido de comida</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <meta name="description" content="Página de prueba - Tienda online">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <title>Desafio 11</title>
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-wrap">
-            <div class="wrap-logo-header">
-                <a href="/" class="logo-header">
-                    Web <span>De</span><span>Restaurante</span>
-                </a>
-            </div>
-            <div class="wrap-nav-header">
-                <nav class="nav-header">
-                    <input type="checkbox" name="" id="check">
-                    <label for="check" class="checkbtn">
-                        <i class="toggle-menu"><img src="./icons/menu.png" alt="Menú de navegación"></i>
-                    </label>
-                    <ul class="main-menu">
-                        <li class="menu-item"><a href="/">Inicio</a></li>
-                        <li class="menu-item"><a href="/">Nosotros</a></li>
-                        <li class="menu-item"><a href="/">Carta</a></li>
-                        <li class="menu-item"><a href="/">Mi pedido</a></li>
-                        <li class="menu-item"><a id="nav-main-contact" href="/">Contacto</a></li>
+    
+    <div class="wrapper">
+        <header class="header__mobile">
+            <h1 class="herader__mobile--title">Tienda prueba 1</h1>
+            <button class="open-menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </header>
+        <aside class="aside">
+            <button class="close-menu">
+                <i class="bi bi-x"></i>
+            </button>
+            <header class="header">
+                <h1 class="logo">Tienda prueba 1</h1>
+                <nav class="navbar">
+                    <ul class="navbar__ul">
+                        <li>
+                            <a class="navbar__button active">
+                                <i class="bi bi-arrow-right-circle-fill active"></i>
+                                Menú
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar__button" href="./contact.html">
+                                <i class="bi bi-arrow-right-circle"></i>
+                                Contacto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar__button" href="./us.html">
+                                <i class="bi bi-arrow-right-circle"></i>
+                                Nosotros
+                            </a>
+                        </li>
+                        <li><a class="navbar__button navbar__cart" href="./shopcart.html">
+                            <i class="bi bi-cart-fill"></i>
+                            Carrito<span class="item--number"> 0 </span>
+                        </a>
+                        </li>
                     </ul>
                 </nav>
+            </header>
+            <footer class="footer">
+                <p>&copy; 2023 - Todos los derechos reservados</p>
+                <p>Fernando Aguilar - Web Services</p>
+            </footer>
+        </aside>
+        <main class="main">
+            <h2 class="main__title">Nuestro Menú</h2>
+            <div class="main__container">
+                <!-- Esto se rellena con JS -->
             </div>
-        </div>
-    </header>
-    <div class="main">
-        <section class="section__products">
-            <figure class="card">
-                <div class="card__media"><img src="./img/bacon_simple_burguer.png" alt=""></div>
-                <div class="card__info">Hamburguesa con queso</div>
-                <div class="card__price">$750</div>
-                <div class="card_add">
-                    <button class="button button--add">+</button>
-                    <span class="counter">0</span>
-                    <button class="button button--remove">-</button>
-                </div>
-            </figure>
-            <figure class="card">
-                <div class="card__media"><img src="" alt=""></div>
-                <div class="card__info">Hamburguesa con queso</div>
-                <div class="card__price">$750</div>
-                <div class="card_add">
-                    <button class="button button--add">+</button>
-                    <span class="counter">0</span>
-                    <button class="button button--remove">-</button>
-                </div>
-            </figure>
-            <figure class="card">
-                <div class="card__media"><img src="" alt=""></div>
-                <div class="card__info">Hamburguesa con queso</div>
-                <div class="card__price">$750</div>
-                <div class="card_add">
-                    <button class="button button--add">+</button>
-                    <span class="counter">0</span>
-                    <button class="button button--remove">-</button>
-                </div>
-            </figure>
-            <figure class="card">
-                <div class="card__media"><img src="" alt=""></div>
-                <div class="card__info">Hamburguesa con queso</div>
-                <div class="card__price">$750</div>
-                <div class="card_add">
-                    <button class="button button--add">+</button>
-                    <span class="counter">0</span>
-                    <button class="button button--remove">-</button>
-                </div>
-            </figure>
-            <figure class="card">
-                <div class="card__media"><img src="" alt=""></div>
-                <div class="card__info">Hamburguesa con queso</div>
-                <div class="card__price">$750</div>
-                <div class="card_add">
-                    <button class="button button--add">+</button>
-                    <span class="counter">0</span>
-                    <button class="button button--remove">-</button>
-                </div>
-            </figure>
-            <figure class="card">
-                <div class="card__media"><img src="" alt=""></div>
-                <div class="card__info">Hamburguesa con queso</div>
-                <div class="card__price">$750</div>
-                <div class="card_add">
-                    <button class="button button--add">+</button>
-                    <span class="counter">0</span>
-                    <button class="button button--remove">-</button>
-                </div>
-            </figure>
-        </section>
+        </main>
     </div>
-    <footer class="footer">
-        <div class="wrap-footer">
-            <div class="text-element-footer element-footer">
-                <h3 class="main-c">Nocker Burguers</h3>
-            </div>
-            <div class="text-element-footer element-footer">
-                <h5>Dirección</h3>
-                    <ul>
-                        <li>Av. Santa Fe 3200</li>
-                        <li>Buenos Aires - Argentina</li>
-                        <li>Cel: +549-1122513924</li>
-                        <li>Tel: +549-1122513924</li>
-                    </ul>
-            </div>
-            <div class="text-element-footer element-footer">
-                <h5>Más info</h3>
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Carta</a></li>
-                        <li><a href="#">Mi pedido</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-            </div>
-            <div class="rrss-element-footer element-footer">
-                <h5>Más info</h3>
-                    <ul>
-                        <li>
-                            <a href="">
-                                <img src="./icons/whatsapp.png" alt="Logo Whatsapp">
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">
-                                <img src="./icons/instagram.png" alt="Logo Instagram">
-                            </a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">
-                                <img src="./icons/facebook.png" alt="Logo Facebook">
-                            </a>
-                        </li>
-                    </ul>
-            </div>
-        </div>
-        <div class="footer-creds">
-            <div class="copy-creds">
-                <p>&copy; Todos los derechos reservados 2023</p>
-            </div>
-        </div>
-    </footer>
+    <script src="./js/script.js"></script>
+    <script src="./js/aside-mobile.js"></script>
+    
 </body>
 </html>
