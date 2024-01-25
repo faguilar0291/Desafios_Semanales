@@ -1,5 +1,34 @@
 const main = document.getElementById("main");
-const sectionMovies = document.querySelector(".section-movies");
+
+const nav = {
+    home: document.getElementById("home"),
+    addMovie: document.getElementById("add-movie"),
+}
+
+nav.home.addEventListener('click', () => {
+    loadContentHtml('home');
+})
+
+nav.addMovie.addEventListener('click', () => {
+    loadContentHtml('add-movie');
+})
+
+function loadContentHtml(pageName) {
+    const filepath = './' + pageName + '.html';
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", filepath);
+
+    xhr.onload = () => {
+    if (xhr.status === 200){
+        main.innerHTML = xhr.response;
+        console.log(main.innerHTML);
+    }
+};
+
+xhr.send();
+}
+
+const sectionMovies = document.getElementsByTagName("section");
 const textFinder = document.getElementById("text-finder");
 const btnFinder = document.getElementById("btn-finder");
 
@@ -39,7 +68,7 @@ const movies = [
 
 ];
 
-
+//This function load the movie data taking the info from the movies object array
 function loadMovies(data) {
 
     data.forEach( (movie) => {
@@ -62,21 +91,30 @@ function loadMovies(data) {
 
 }
 
-window.onload = loadMovies(movies);
+//The movie list is loaded, when the page is loaded
+loadMovies(movies);
+//verifying the correct load data
 console.log(movies);
 
+//this function filter the movies using the data we put on the input
 function loadFilteredMovies(){
     sectionMovies.innerHTML = "";
 
     const filteredMovies = movies.filter( (movie) => movie.title.includes(textFinder.value) );
+    //verifying the correct load data
     console.log(filteredMovies);
 
     loadMovies(filteredMovies);
 }
 
+//when it clicks the button launch the function
 btnFinder.onclick = loadFilteredMovies;
 
-
+const addMovieElement = (title, description, year) => {
+    this.title = title;
+    this.description = description;
+    this.year = year;
+}
 
 
 //me quede en 1:25 video 38
