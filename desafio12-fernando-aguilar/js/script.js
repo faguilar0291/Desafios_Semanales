@@ -39,46 +39,44 @@ const movies = [
 
 ];
 
-movies.forEach( (movie) => {
-    const h3 = document.createElement("h3");
-    
-    h3.innerText = "Titulo de la película - " + movie.title;
-    
-    sectionMovies.appendChild(h3);
-    
-    const p2 = document.createElement("p");
-    p2.innerText = "Descripción: " + movie.description;
-    sectionMovies.appendChild(p2);
-    
-    const p1 = document.createElement("p");
-    p1.innerText = "Año: " + movie.year;
-    sectionMovies.appendChild(p1);
-})
 
-const findMovie = () => {
-    const filteredMovies = movies.filter( (movie) => movie.title.includes(textFinder.value) );
-    console.log(filteredMovies);
-    sectionMovies.innerHTML = "";
+function loadMovies(data) {
 
-    filteredMovies.forEach( (movie) => {
+    data.forEach( (movie) => {
+        const div = document.createElement("div");
+        sectionMovies.appendChild(div);
         const h3 = document.createElement("h3");
         
-        h3.innerText = "Titulo de la película - " + movie.title;
+        h3.innerText = "- " + movie.title + " -";
         
-        sectionMovies.appendChild(h3);
+        div.appendChild(h3);
         
         const p2 = document.createElement("p");
         p2.innerText = "Descripción: " + movie.description;
-        sectionMovies.appendChild(p2);
-
+        div.appendChild(p2);
+        
         const p1 = document.createElement("p");
         p1.innerText = "Año: " + movie.year;
-        sectionMovies.appendChild(p1);
-        
-    })
-};
+        div.appendChild(p1);
+    });
 
-btnFinder.onclick = findMovie;
+}
+
+window.onload = loadMovies(movies);
+console.log(movies);
+
+function loadFilteredMovies(){
+    sectionMovies.innerHTML = "";
+
+    const filteredMovies = movies.filter( (movie) => movie.title.includes(textFinder.value) );
+    console.log(filteredMovies);
+
+    loadMovies(filteredMovies);
+}
+
+btnFinder.onclick = loadFilteredMovies;
+
+
 
 
 //me quede en 1:25 video 38
