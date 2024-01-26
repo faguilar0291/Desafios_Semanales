@@ -24,6 +24,10 @@ ul {
     justify-content: space-evenly;
 }
 
+.link-active {
+    color: aqua;
+}
+
 body {
     display: flex;
     flex-direction: column;

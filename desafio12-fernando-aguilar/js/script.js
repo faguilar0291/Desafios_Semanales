@@ -1,36 +1,52 @@
 const main = document.getElementById("main");
 
-const nav = {
-    home: document.getElementById("home"),
-    addMovie: document.getElementById("add-movie"),
-}
-
-nav.home.addEventListener('click', () => {
-    loadContentHtml('home');
-})
-
-nav.addMovie.addEventListener('click', () => {
-    loadContentHtml('add-movie');
-})
-
-function loadContentHtml(pageName) {
-    const filepath = './' + pageName + '.html';
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", filepath);
-
-    xhr.onload = () => {
-    if (xhr.status === 200){
-        main.innerHTML = xhr.response;
-        console.log(main.innerHTML);
-    }
-};
-
-xhr.send();
-}
-
 const sectionMovies = document.getElementsByTagName("section");
 const textFinder = document.getElementById("text-finder");
 const btnFinder = document.getElementById("btn-finder");
+
+const nav = {
+    home: document.getElementById("home"),
+    addmovies: document.getElementById("addmovies"),
+};
+
+loadContentHtml("home");
+
+const links = [nav.home, nav.addmovies ];
+
+for (let i = 0; i < links.length; i++) {
+
+    const link = links[i];
+    console.log(link);
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        loadContentHtml(e.target.id);
+    })
+}
+
+
+function loadContentHtml(pageName) {
+    console.log(nav[pageName]);
+    const filepath = "./" + pageName + ".html";
+    const xhr = new XMLHttpRequest();
+    xhr.open("get", filepath);
+
+    xhr.onload = () => {
+        if (xhr.status === 200){
+            main.innerHTML = xhr.response;
+            setActiveLink(links, nav[pageName]);
+        }
+    };
+
+    xhr.send();
+}
+
+function setActiveLink(links, link) {
+    for (let i = 0; i < links.length; i++){
+         links[i].className = "";
+    }
+    link.className = "link-active";
+}
+
 
 //Movies catalogue
 const movies = [
@@ -91,7 +107,7 @@ function loadMovies(data) {
 
 }
 
-//The movie list is loaded, when the page is loaded
+// //The movie list is loaded, when the page is loaded
 loadMovies(movies);
 //verifying the correct load data
 console.log(movies);
@@ -107,14 +123,14 @@ function loadFilteredMovies(){
     loadMovies(filteredMovies);
 }
 
-//when it clicks the button launch the function
+// //when it clicks the button launch the function
 btnFinder.onclick = loadFilteredMovies;
 
-const addMovieElement = (title, description, year) => {
-    this.title = title;
-    this.description = description;
-    this.year = year;
-}
+// const addMovieElement = (title, description, year) => {
+//     this.title = title;
+//     this.description = description;
+//     this.year = year;
+// }
 
 
 //me quede en 1:25 video 38
