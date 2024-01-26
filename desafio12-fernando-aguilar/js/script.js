@@ -1,6 +1,6 @@
 const main = document.getElementById("main");
 
-const sectionMovies = document.getElementsByTagName("section");
+const sectionMovies = document.querySelector(".section-movies");
 const textFinder = document.getElementById("text-finder");
 const btnFinder = document.getElementById("btn-finder");
 
@@ -84,6 +84,8 @@ const movies = [
 
 ];
 
+
+console.log(movies);
 //This function load the movie data taking the info from the movies object array
 function loadMovies(data) {
 
