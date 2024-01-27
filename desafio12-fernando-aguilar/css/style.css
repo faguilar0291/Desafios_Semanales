@@ -50,7 +50,7 @@ main {
 }
 
 .finder {
-    height: 110px;
+    height: 150px;
     width: 250px;
     display: flex;
     flex-direction: column;
@@ -90,3 +90,17 @@ div {
 
 }
 
+footer {
+    height: 5vh;
+    width: 100%;
+    background-color: #706cf4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+}

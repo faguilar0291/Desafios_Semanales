@@ -1,9 +1,5 @@
 const main = document.getElementById("main");
 
-const sectionMovies = document.querySelector(".section-movies");
-const textFinder = document.getElementById("text-finder");
-const btnFinder = document.getElementById("btn-finder");
-
 const nav = {
     home: document.getElementById("home"),
     addmovies: document.getElementById("addmovies"),
@@ -85,13 +81,33 @@ const movies = [
 ];
 
 
-console.log(movies);
 //This function load the movie data taking the info from the movies object array
 function loadMovies(data) {
+    console.log(data);
+
+    const form = document.createElement("form");
+    form.classList.add("finder");
+    form.innerHTML = `
+        <label for="finder" id="label-finder">Encuentra tu película por el titulo</label>
+        <input type="text" name="finder" class="text-finder">
+        <input type="button" value="search" class="material-symbols-outlined btn-finder">
+        `;
+    main.append(form);
+
+    const h2 = document.createElement("h2");
+    h2.innerHTML = "Películas disponibles";
+    main.append(h2);
+
+    const section = document.createElement("section");
+    section.classList.add("section-movies");
+    main.append(section);
+
 
     data.forEach( (movie) => {
+    
         const div = document.createElement("div");
-        sectionMovies.appendChild(div);
+        div.innerHTML = "";
+        section.appendChild(div);
         const h3 = document.createElement("h3");
         
         h3.innerText = "- " + movie.title + " -";
@@ -110,23 +126,35 @@ function loadMovies(data) {
 }
 
 // //The movie list is loaded, when the page is loaded
-loadMovies(movies);
+setTimeout(() => {
+    loadMovies(movies);
+}, 200);
 //verifying the correct load data
 console.log(movies);
 
+const sectionMovies = document.getElementsByClassName("section-movies");
+const textFinder = document.getElementsByClassName("text-finder");
+const btnFinder = document.getElementsByClassName("btn-finder");
+
+
 //this function filter the movies using the data we put on the input
 function loadFilteredMovies(){
-    sectionMovies.innerHTML = "";
+    console.log("button");
+    // sectionMovies.innerHTML = "";
 
-    const filteredMovies = movies.filter( (movie) => movie.title.includes(textFinder.value) );
-    //verifying the correct load data
-    console.log(filteredMovies);
+    // const filteredMovies = movies.filter( (movie) => movie.title.includes(textFinder.value) );
+    // //verifying the correct load data
+    // console.log(filteredMovies);
 
-    loadMovies(filteredMovies);
+    // loadMovies(filteredMovies);
 }
 
-// //when it clicks the button launch the function
+//when it clicks the button launch the function
+setTimeout(() => {
+
+},)
 btnFinder.onclick = loadFilteredMovies;
+
 
 // const addMovieElement = (title, description, year) => {
 //     this.title = title;
