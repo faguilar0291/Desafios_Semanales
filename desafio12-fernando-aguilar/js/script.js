@@ -1,5 +1,6 @@
 const main = document.getElementById("main");
 
+
 const nav = {
     home: document.getElementById("home"),
     addmovies: document.getElementById("addmovies"),
@@ -12,7 +13,6 @@ const links = [nav.home, nav.addmovies ];
 for (let i = 0; i < links.length; i++) {
 
     const link = links[i];
-    console.log(link);
     link.addEventListener("click", (e) => {
         e.preventDefault();
         loadContentHtml(e.target.id);
@@ -21,7 +21,7 @@ for (let i = 0; i < links.length; i++) {
 
 
 function loadContentHtml(pageName) {
-    console.log(nav[pageName]);
+
     const filepath = "./" + pageName + ".html";
     const xhr = new XMLHttpRequest();
     xhr.open("get", filepath);
@@ -80,23 +80,9 @@ const movies = [
 
 ];
 
-
 //This function load the movie data taking the info from the movies object array
 function loadMovies(data) {
     console.log(data);
-
-    const form = document.createElement("form");
-    form.classList.add("finder");
-    form.innerHTML = `
-        <label for="finder" id="label-finder">Encuentra tu película por el titulo</label>
-        <input type="text" name="finder" class="text-finder">
-        <input type="button" value="search" class="material-symbols-outlined btn-finder">
-        `;
-    main.append(form);
-
-    const h2 = document.createElement("h2");
-    h2.innerHTML = "Películas disponibles";
-    main.append(h2);
 
     const section = document.createElement("section");
     section.classList.add("section-movies");
@@ -125,35 +111,54 @@ function loadMovies(data) {
 
 }
 
-// //The movie list is loaded, when the page is loaded
+// Here we load the finder box and the movie list, when the page is loaded
 setTimeout(() => {
+
+    const form = document.createElement("form");
+    form.classList.add("finder");
+    form.innerHTML = `
+        <label for="finder" id="label-finder">Encuentra tu película por el titulo</label>
+        <input type="text" name="finder" class="text-finder">
+        <input type="button" value="search" class="material-symbols-outlined btn-finder">
+        `;
+    main.append(form);
+
+    const h2 = document.createElement("h2");
+    h2.innerHTML = "Películas disponibles";
+    main.append(h2);
+
     loadMovies(movies);
 }, 200);
-//verifying the correct load data
-console.log(movies);
 
-const sectionMovies = document.getElementsByClassName("section-movies");
-const textFinder = document.getElementsByClassName("text-finder");
-const btnFinder = document.getElementsByClassName("btn-finder");
-
-
-//this function filter the movies using the data we put on the input
-function loadFilteredMovies(){
-    console.log("button");
-    // sectionMovies.innerHTML = "";
-
-    // const filteredMovies = movies.filter( (movie) => movie.title.includes(textFinder.value) );
-    // //verifying the correct load data
-    // console.log(filteredMovies);
-
-    // loadMovies(filteredMovies);
-}
 
 //when it clicks the button launch the function
 setTimeout(() => {
+    const sectionMovies = document.querySelector(".section-movies");
+    const textFinder = document.querySelector(".text-finder");
+    const btnFinder = document.querySelector(".btn-finder");
+    
+    console.log(sectionMovies);
+    console.log(textFinder);
+    console.log(btnFinder);
 
-},)
-btnFinder.onclick = loadFilteredMovies;
+    //this function filter the movies using the data we put on the input
+    
+    function loadFilteredMovies() {
+        console.log("button");
+        sectionMovies.innerHTML = "";
+
+        const filteredMovies = movies.filter( (movie) => movie.title.includes(textFinder.value) );
+        //verifying the correct load data
+        console.log(filteredMovies);
+
+        loadMovies(filteredMovies);
+    }
+
+    btnFinder.onclick = loadFilteredMovies;
+
+}, 200);
+
+
 
 
 // const addMovieElement = (title, description, year) => {
