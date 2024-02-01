@@ -1,36 +1,34 @@
-const taskArray = [
-    {
-        title: "Hacer el ejercicio 14",
-        description: "Realizar la lectura de la consiga y empezar a programar",
-        complete: false,
-        id: 1,
-    },
-    {
-        title: "Hacer el ejercicio 15",
-        description: "Realizar la lectura de la consiga y empezar a programar",
-        complete: false,
-        id: 2,
-    },
-    {
-        title: "Hacer el ejercicio 13",
-        description: "Realizar la lectura de la consiga y empezar a programar",
-        complete: true,
-        id: 3,
-    },
-];
+import { useState } from "react";
 
 const TasksList = () => {
 
-    const taskTitle = document.querySelector(".form__title");
-    const taskDescription = document.querySelector(".form__description");
-    const createTaskBtn = document.querySelector(".form__submit");
+    const [taskArray, setTaskArray ] = useState([
+                {
+                    title: "Hacer el ejercicio 14",
+                    description: "Realizar la lectura de la consiga y empezar a programar",
+                    complete: false,
+                    id: 1,
+                },
+                {
+                    title: "Hacer el ejercicio 15",
+                    description: "Realizar la lectura de la consiga y empezar a programar",
+                    complete: false,
+                    id: 2,
+                },
+                {
+                    title: "Hacer el ejercicio 13",
+                    description: "Realizar la lectura de la consiga y empezar a programar",
+                    complete: true,
+                    id: 3,
+                },
+            ]
+        );
+
+    
+
 
     const completedTask = taskArray.filter( task => task.complete === true).length;
     const pendingTask = taskArray.filter( task => task.complete === false).length;
-
-    function createTask() {
-
-    }
 
     return (
     <>
