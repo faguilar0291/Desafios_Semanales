@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #d4d4d4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #2e4cf8;
+    width: 50vw;
+    height: 70vh;
+    font-size: .8rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.container h1 {
+    color: #c6c6c6;
+    width: 90%;
+    border: #c6c6c6 1px solid;
+
+    display: flex;
+    justify-content: center;
+}
+
+.div-form {
+    height: 2rem;
+    width: 90%;
+
+    border: #c6c6c6 1px solid;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.form-input {
+    width: 75%;
+    height: 1.5rem;
+}
+
+.form-btn{
+    height: 1.5rem;
+}
+
+.div-list {
+    height: 75%;
+    width: 90%;
+    border: #c6c6c6 1px solid;
+    color: #c6c6c6;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+}
+
+.container-task {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.div-task {
+    width: 95%;
+    background-color: #0025f6ba;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
