@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #d4d4d4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #root {
+        height: 100vh;
+        width: 100vw;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .header, .footer {
+            background-color: #2e4cf8;
+            color: #F8DA2E;
+            width: 100vw;
+            height: 2rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0px 8px 10px rgb(58, 58, 58);
+        }
+
+        .footer {
+            box-shadow: 1px 0px 10px 6px rgb(58, 58, 58);
+        }
+
+        .container {
+            background-color: #2e4cf8;
+            width: 50vw;
+            height: 70vh;
+            font-size: .8rem;
+
+            box-shadow: 0px 8px 10px rgb(58, 58, 58);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 1rem;
+
+            h1 {
+                color: #F8DA2E;
+                width: 90%;
+                border: #F8DA2E 1px solid;
+
+                display: flex;
+                justify-content: center;
+            }
+
+            .div-form {
+                height: 2.5rem;
+                width: 90%;
+
+                border: #F8DA2E 1px solid;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+
+                .form-input {
+                    width: 75%;
+                    height: 1.5rem;
+
+                    background-color: #F8DA2E;
+                    color: #2e4cf8;
+                }
+
+                .form-input:hover{
+                    background-color: #f8352e;
+                    color: #d4d4d4;
+                }
+
+                .form-input:active{
+                    background-color: #56f82e;
+                    color: #000000;
+                }
+
+                .form-btn{
+                    height: 1.5rem;
+                    background-color: #F8DA2E;
+                }
+
+                .form-btn:hover{
+                    background-color: #f8352e;
+                    color: #d4d4d4;
+                }
+
+                .form-btn:active{
+                    background-color: #56f82e;
+                    color: #000000;
+                }
+            }
+
+            .div-list {
+                height: 75%;
+                width: 90%;
+                border: #F8DA2E 1px solid;
+                color: #F8DA2E;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: .5rem;
+
+                overflow: auto;
+
+                .container-task {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: .5rem;
+
+                    .div-task {
+                        width: 95%;
+                        background-color: #0025f6ba;
+                        padding-left: 1rem;
+
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        p {
+                            padding-right: .5rem;
+                        }
+
+                        .task-btn {
+                            height: 1.5rem;
+                            background-color: #F8DA2E;
+                        }
+
+                        .task-btn:hover{
+                            background-color: #f8352e;
+                            color: #d4d4d4;
+                        }
+
+                        .task-btn:active{
+                            background-color: #56f82e;
+                            color: #000000;
+                        }
+                    }
+
+                    .div-task:hover{
+                        background-color: #f8352e;
+                        color: #d4d4d4;
+                    }
+    
+                    .div-task:active{
+                        background-color: #56f82e;
+                        color: #000000;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+    
+    body {
+
+        #root {
+
+            .header, .footer, .container {
+                font-size: .7rem;
+            }
+
+            .container {
+                width: 75vw;
+                height: 75vh;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+
+                .div-form {
+                    height: 3.8rem;
+                    width: 90%;
+    
+                    border: #F8DA2E 1px solid;
+    
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    flex-wrap: wrap;
+    
+                    .form-input {
+                        width: 75%;
+                        height: 1.5rem;
+                        font-size: .7rem;
+                    }
+                }
+            }
+        }
+    }
+}

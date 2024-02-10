@@ -1,5 +1,4 @@
-import React, { useRef } from 'react'
-import { useState } from 'react';
+import  { useRef, useState } from 'react'
 import TaskList from './TaskList';
 
 //Agregar proptypes
@@ -27,7 +26,7 @@ export default function TaskForm() {
     <>
         <div className='div-form'>
             <input type="text" onChange={(e) => handleText(e.target.value)} className='form-input'/>
-            <button onClick={addTask} className='form-btn'>Agregar Tarea</button>
+            <button onClick={addTask} className='form-btn'>Agregar</button>
         </div>
         <TaskList>
             <div className='div-list'>
@@ -36,7 +35,7 @@ export default function TaskForm() {
                     {inputText.map((task, index) => (
                         <div key={index} className='div-task'>
                             <p>{task}</p>
-                            <button onClick={() => removeTask(index)}>x</button>
+                            <button className='task-btn' onClick={() => removeTask(index)}>x</button>
                         </div>
                     ))}
                 </div>
@@ -45,9 +44,3 @@ export default function TaskForm() {
     </>
   )
 }
-
-// {
-//     inputText.map((task, index) => {
-//         <p key={index}>{task}</p>
-//     })
-// }

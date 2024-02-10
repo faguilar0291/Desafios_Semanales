@@ -1,4 +1,4 @@
-import './App.css';
+import './app.scss';
 import TaskForm from './components/TaskForm';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
