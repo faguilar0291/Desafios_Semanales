@@ -1,7 +1,9 @@
 import './app.scss';
-import TaskForm from './components/TaskForm';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+
+import {Header}  from './components/Header';
+import {Footer}  from './components/Footer';
+import Container from './components/Container';
+
 
 
 
@@ -9,10 +11,7 @@ function App() {
   return (
     <>
         <Header />
-        <section className="container">
-            <h1>Lista de tareas</h1>
-            <TaskForm />
-        </section>
+        <Container />
         <Footer />
     </>
   );

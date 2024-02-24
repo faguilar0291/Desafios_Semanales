@@ -13,5 +13,3 @@ export default function TaskList(props) {
 TaskList.propTypes = {
     children: PropTypes.node,
 }
-
-//2:07 clase 44
