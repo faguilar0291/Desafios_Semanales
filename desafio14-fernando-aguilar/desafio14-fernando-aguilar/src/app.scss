@@ -1,8 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@use "./components/styles/colors";
+@use "./components/styles/reset";
+@use "./components/styles/mixins";
+@use "./components/styles/variables";
 
 body {
     min-height: 100vh;
@@ -45,7 +44,8 @@ body {
         .container {
             background-color: #2e4cf8;
             width: 50vw;
-            height: 70vh;
+            min-height: 40vh;
+            max-height: 60vh;
             font-size: .8rem;
 
             box-shadow: 0px 8px 10px rgb(58, 58, 58);
@@ -59,6 +59,8 @@ body {
             h1 {
                 color: #F8DA2E;
                 width: 90%;
+                min-height: 30px;
+                margin-top: .5rem;
                 border: #F8DA2E 1px solid;
 
                 display: flex;
@@ -127,6 +129,7 @@ body {
             .div-list {
                 height: 75%;
                 width: 90%;
+                margin-bottom: .5rem;
                 border: #F8DA2E 1px solid;
                 color: #F8DA2E;
 

@@ -1,8 +1,8 @@
 import './app.scss';
 
-import {Header}  from './components/Header';
-import {Footer}  from './components/Footer';
-import Container from './components/Container';
+import {Header}  from './components/layout/Header';
+import {Footer}  from './components/layout/Footer';
+import Container from './components/layout/Container';
 
 
 
