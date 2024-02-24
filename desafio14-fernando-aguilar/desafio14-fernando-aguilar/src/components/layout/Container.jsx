@@ -1,3 +1,4 @@
+import "../layout/container.scss";
 import  { useState } from 'react'
 import TaskForm from './TaskForm'
 import TaskList from './TaskList'

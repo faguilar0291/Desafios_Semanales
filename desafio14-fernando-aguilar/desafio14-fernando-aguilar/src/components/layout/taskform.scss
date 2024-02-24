@@ -1,0 +1,60 @@
+@use "../styles/variables" as var;
+
+.div-form {
+    height: 3rem;
+    width: 90%;
+
+    border: #F8DA2E 1px solid;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .label-form {
+        color: #F8DA2E;
+        font-weight: 600;
+        font-size: .8rem;
+
+        margin-left: .3rem;
+    }
+
+    .div-form-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .form-input {
+        width: 40%;
+        height: 1.2rem;
+
+        background-color: #F8DA2E;
+        color: #2e4cf8;
+    }
+
+    .form-input:hover {
+        background-color: #f8352e;
+        color: #d4d4d4;
+    }
+
+    .form-input:active {
+        background-color: #56f82e;
+        color: #000000;
+    }
+
+    .form-btn {
+        height: 1.2rem;
+        background-color: #F8DA2E;
+    }
+
+    .form-btn:hover {
+        background-color: #f8352e;
+        color: #d4d4d4;
+    }
+
+    .form-btn:active {
+        background-color: #56f82e;
+        color: #000000;
+    }
+}

@@ -1,4 +1,4 @@
-
+import "../layout/header.scss";
 
 export const Header = () => {
   return (

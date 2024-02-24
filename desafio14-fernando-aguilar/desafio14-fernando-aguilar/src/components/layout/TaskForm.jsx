@@ -1,3 +1,4 @@
+import "../layout/taskform.scss";
 import PropTypes from "prop-types";
 
 export default function TaskForm( props) {

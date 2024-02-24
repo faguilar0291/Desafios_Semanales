@@ -1,0 +1,85 @@
+@use "../styles/variables" as var;
+
+.div-list {
+    height: 75%;
+    width: 90%;
+    margin-bottom: .5rem;
+    border: #F8DA2E 1px solid;
+    color: #F8DA2E;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+
+    overflow: auto;
+
+    .container-task {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+
+        .div-task {
+            width: 95%;
+            height: 2.2rem;
+            background-color: #0025f6ba;
+            padding-left: .3rem;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .task-btn {
+                height: 1.5rem;
+                background-color: #F8DA2E;
+            }
+
+            .task-btn:hover {
+                background-color: #f8352e;
+                color: #d4d4d4;
+            }
+
+            .task-btn:active {
+                background-color: #56f82e;
+                color: #000000;
+            }
+
+            .div-input-container {
+                width: 70%;
+
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    height: 1rem;
+                }
+            }
+
+            .div-btn-container {
+                width: 15%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+
+                .material-symbols-outlined {
+                    font-size: .7rem;
+                }
+            }
+        }
+
+        .div-task:hover {
+            background-color: #f8352e;
+            color: #d4d4d4;
+        }
+
+        .div-task:active {
+            background-color: #56f82e;
+            color: #000000;
+        }
+    }
+}

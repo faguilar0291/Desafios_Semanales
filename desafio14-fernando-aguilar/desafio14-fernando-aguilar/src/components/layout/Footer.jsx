@@ -1,3 +1,4 @@
+import "../layout/footer.scss";
 
 export const Footer = () => {
   return (
