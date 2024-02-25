@@ -8,18 +8,18 @@ import TaskList from './TaskList'
 export default function Container() {
 
     const [taskArray, setTaskArray] = useState([
-        {
-            id: 1,
-            title: "Tarea 1",
-            description: "Descripción 1",
-            fav: false,
-        },
-        {
-            id: 2,
-            title: "Tarea 2",
-            description: "Descripción 2",
-            fav: false,
-        },
+        // {
+        //     id: 1,
+        //     title: "Tarea 1",
+        //     description: "Descripción 1",
+        //     fav: false,
+        // },
+        // {
+        //     id: 2,
+        //     title: "Tarea 2",
+        //     description: "Descripción 2",
+        //     fav: false,
+        // },
     ]);
 
     const [inputNewTask , setInputNewTask] = useState("");
