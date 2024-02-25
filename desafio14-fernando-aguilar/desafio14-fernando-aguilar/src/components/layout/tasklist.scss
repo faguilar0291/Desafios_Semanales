@@ -57,7 +57,11 @@
 
                 input {
                     height: 1rem;
+                    background-color: transparent;
+                    color: #F8DA2E;
                 }
+
+
             }
 
             .div-btn-container {
@@ -70,6 +74,10 @@
                     font-size: .7rem;
                 }
             }
+        }
+
+        .favTask {
+            background-color: #f718ec;
         }
 
         .div-task:hover {

@@ -3,6 +3,8 @@ import  { useState } from 'react'
 import TaskForm from './TaskForm'
 import TaskList from './TaskList'
 
+//Clase 45 1:54 hr
+
 export default function Container() {
 
     const [taskArray, setTaskArray] = useState([
@@ -10,11 +12,13 @@ export default function Container() {
             id: 1,
             title: "Tarea 1",
             description: "Descripción 1",
+            fav: false,
         },
         {
             id: 2,
             title: "Tarea 2",
             description: "Descripción 2",
+            fav: false,
         },
     ]);
 
@@ -100,6 +104,20 @@ export default function Container() {
         setTaskArray(deletedTaskList);
     }
 
+    const favTask = (id) => {
+        // Buscamos el indice
+        const index = taskArray.findIndex( (task) => task.id === id);
+
+        // Clonamos la lista de tareas
+        const favTaskArray = [...taskArray];
+
+        // Modificamos el fav
+        favTaskArray[index].fav = !favTaskArray[index].fav;
+
+        // Actualiza el array
+        setTaskArray(favTaskArray);
+    }
+
 
     return (
         <>
@@ -130,8 +148,7 @@ export default function Container() {
                         <h2>Tareas por hacer:</h2>
                         <div className='container-task'>
                             {taskArray.map((task) => (
-                                <div key={task.id} className='div-task'>
-                                    <input type="checkbox" />
+                                <div key={task.id} className={task.fav ? 'div-task favTask' : 'div-task'}>
                                     <div className="div-input-container">
                                         <input type="text"
                                             value={task.title}
@@ -139,10 +156,10 @@ export default function Container() {
                                         <input type="text"
                                             value={task.description}
                                             onChange={ (e) => modifyDescription(task.id, e.target.value)} />
-                                        {/* {task.completed && <span>Completada</span>} */}
                                     </div>
                                     <div className="div-btn-container">
                                         <button className='task-btn material-symbols-outlined' onClick={() => removeTask(task.id)}>done</button>
+                                        <button className='task-btn material-symbols-outlined' onClick={() => favTask(task.id)}>star</button>
                                     </div>
                                 </div>
                             ))}
