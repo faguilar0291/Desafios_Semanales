@@ -1,0 +1,24 @@
+Se desea crear una aplicación web que permita a los usuarios agregar y eliminar tareas de una lista. Para ello, se utilizarán componentes de React y el hook useState para manejar el estado de la lista de tareas.
+
+La lógica de negocio de la aplicación es la gestión de una lista de tareas. Los usuarios podrán agregar nuevas tareas a la lista y eliminar tareas existentes de la misma. Cada tarea estará representada por un objeto con dos propiedades: "id" y "text".
+
+Los datos de entrada serán las tareas que el usuario ingrese en un formulario. Los datos de salida serán la lista de tareas actualizada, que se mostrará en la interfaz de usuario.
+
+Requerimientos Funcionales:
+
+* La aplicación debe permitir agregar nuevas tareas a la lista.
+* La aplicación debe permitir eliminar tareas existentes de la lista.
+* La lista de tareas debe actualizarse en tiempo real al agregar o eliminar tareas.
+
+Requerimientos No Funcionales:
+
+* La aplicación debe tener una interfaz de usuario clara e intuitiva.
+* La aplicación debe ser responsiva y adaptarse a diferentes tamaños de pantalla.
+* La aplicación debe tener un rendimiento óptimo, incluso con una gran cantidad de tareas en la lista.
+
+Pasos para resolver el ejercicio:
+
+1.Crear un componente "TaskForm" que permita al usuario ingresar nuevas tareas en la lista. El componente debe incluir un formulario con un campo de texto y un botón "Agregar". Al hacer clic en el botón, se debe crear un nuevo objeto de tarea con un ID único y el texto ingresado por el usuario, y agregarlo a la lista de tareas.
+2.Crear un componente "TaskList" que muestre la lista de tareas actual. El componente debe recibir la lista de tareas como una prop y mostrar cada tarea en un elemento de la lista. Cada elemento de la lista debe incluir un botón "Eliminar" que permita al usuario eliminar esa tarea de la lista.
+3.Crear un componente "App" que incluya los componentes "TaskForm" y "TaskList". El componente "App" debe utilizar el hook useState para manejar el estado de la lista de tareas. Inicialmente, la lista de tareas debe estar vacía. Cuando el usuario agregue o elimine una tarea, el estado de la lista debe actualizarse automáticamente.
+4.Agregar estilos CSS a los componentes para que se vean bien en la pantalla. Asegurarse de que la aplicación sea responsiva y se vea bien en diferentes tamaños de pantalla.
