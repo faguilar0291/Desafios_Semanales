@@ -26,7 +26,7 @@ const Container = () => {
 
         console.log(filteredProducts);
 
-        // localStorage.setItemValue('products', JSON.stringify(filteredProducts));
+        localStorage.setItemValue('products', JSON.stringify(filteredProducts));
 
         // console.log(localStorage);
     }
