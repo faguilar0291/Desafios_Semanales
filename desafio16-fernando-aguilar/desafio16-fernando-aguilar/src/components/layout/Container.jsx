@@ -1,40 +1,63 @@
 import "../layout/container.scss";
 import { Box } from "@mui/material";
-import ProductList from "./ProductList"
-import useCounter from "../hooks/useCounter";
+import { products } from "../../data/products";
 import useLocalStorage from "../hooks/useLocalStorage";
+import ProductList from "./ProductList"
+import ProductForm from "./ProductForm";
+import { jsx } from "@emotion/react";
 
 //51:34
 
 const Container = () => {
 
-    const { count, decrement, increment } = useCounter();
-    const localStorage = useLocalStorage();
+    const localStorage = useLocalStorage({ count: 0, products});
 
-    console.log(count);
+    const handleRemoveItem = (key) => {
+
+        console.log(key);
+        
+        console.log(localStorage.value.products);
+
+        const productos = localStorage.value.products;
+
+        console.log(productos[0]);
+
+        const filteredProducts = productos.filter(product => product.name !== key);
+
+        console.log(filteredProducts);
+
+        // localStorage.setItemValue('products', JSON.stringify(filteredProducts));
+
+        // console.log(localStorage);
+    }
+
 
     return (
         <Box className="container">
-            <h2 className="container__title">Lista de productos</h2>
-                {/* CONTADOR - Versión custom hook useCounter */}
-                <Box>
-                    <button onClick={() => increment()}>+</button>
-                    <p>{count}</p>
-                    <button onClick={() => decrement()}>-</button>
-                </Box>
                 {/* CONTADOR - Versión custom hook useLocalStorage */}
                 <Box>
-                    <button onClick={() => localStorage.setItemValue("count", localStorage.value+1)}>+</button>
-                    <p>{localStorage.value}</p>
-                    <button onClick={() => localStorage.setItemValue("count", localStorage.value-1)}>-</button>
                     <Box>
                         <button onClick={() => localStorage.clearItems()}>Clear</button>
-                        <button onClick={() => localStorage.removeItem("pepe")}>Remove</button>
+                        <button onClick={() => localStorage.removeItem("count")}>Remove</button>
                     </Box>
                 </Box>
+            <h2 className="container__title">Lista de productos</h2>
             <ProductList>
-                
+                {localStorage.value.products.map( (product) => (
+                    <Box key={product.name} className="container__products">
+                        <p>{product.name}</p>
+                        <p>{product.description}</p>
+                        <p>{product.price}</p>
+                        <button onClick={() => handleRemoveItem(product.name)}>Remove</button>
+                    </Box>
+                ))}
             </ProductList>
+            <ProductForm>
+                <h2>Creación de productos</h2>
+                    <input type="text"
+                        onChange={ (e) => createName(e)}
+                    />
+            </ProductForm>
         </Box>
     );
 };

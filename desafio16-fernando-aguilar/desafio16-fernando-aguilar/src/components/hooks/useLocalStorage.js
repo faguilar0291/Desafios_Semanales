@@ -1,4 +1,3 @@
-import { jsx } from "@emotion/react";
 import { useEffect, useState } from "react"
 
 //clase 55 / 53min
@@ -6,23 +5,29 @@ import { useEffect, useState } from "react"
 const useLocalStorage = (initialValue = {}) => {
      const [ value, setValue ] = useState(initialValue);
 
-    //  const productsStorage = {
-    //     count: 1,
-    //     saludo: "hola",
-    //     anio: 2024,
-    //  }
-
-    const exist = () => {
-        if (window.localStorage.getItem("count") === null){
+    const exist = (key) => {
+        if (window.localStorage.getItem(key) === null){
             return false;
         }
 
         return true;
     }
 
+    const synchronize = (initialValue) => {
+        const synchronizedItems = {};
+
+        for (const property in initialValue) {
+            if (!exist(property)) {
+                window.localStorage.setItem(property, JSON.stringify(initialValue[property]));
+            }
+            synchronizedItems[property] = JSON.parse(window.localStorage.getItem(property));
+        }
+
+        setValue(synchronizedItems);
+    };
+
      useEffect(() => {
-       const itemValue = JSON.parse(window.localStorage.getItem("count"));
-       setValue(itemValue);
+       synchronize(initialValue);
      }, []);
 
      const setItemValue = ( key, newValue ) => {
@@ -32,7 +37,6 @@ const useLocalStorage = (initialValue = {}) => {
 
      const removeItem = ( key ) => {
         window.localStorage.removeItem(key);
-        
         const currentItems = {...value};
         delete currentItems[key];
         setValue(currentItems);
