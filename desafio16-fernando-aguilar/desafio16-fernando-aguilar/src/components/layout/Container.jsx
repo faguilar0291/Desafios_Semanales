@@ -25,45 +25,68 @@ const Container = () => {
         localStorage.setItemValue('products', filteredProducts);
     };
 
-    // const [inputProductName , setInputProductName] = useState("");
-    // const [inputDescription , setInputDescription] = useState("");
-    // const [InputPrice , setInputPrice] = useState("");
+    const generateId = () => {
+         let maxId = 0;
+         const productos = localStorage.value.products;
+         productos.forEach( (product) => {
+         if (product.id > maxId) {
+             maxId = product.id;
+             }
+         });
+         return maxId + 1;
+    };
 
-    // const generateId = () => {
-    //      let maxId = 0;
-    //      const productos = localStorage.value.products;
-    //      productos.forEach( (product) => {
-    //      if (product.id > maxId) {
-    //          maxId = product.id;
-    //          }
-    //      });
-    //      return maxId + 1;
-    // };
 
-    // const handleProductName = (e) => {
-    //     setInputProductName(e.target.value);
-    // };
+    //Creamos los state para cada dato nuevo
+    const [inputProductName , setInputProductName] = useState("");
+    const [inputDescription , setInputDescription] = useState("");
+    const [inputPrice , setInputPrice] = useState("");
+    const [newProductArray , setNewProductArray] = useState("");
 
-    // const handleProductDescription = (e) => {
-    //     setInputDescription(e.target.value);
-    // };
+    const handleProductName = (e) => {
+    setInputProductName(e.target.value);
+    };
 
-    // const handleProductPrice = (e) => {
-    //     setInputPrice(e.target.value);
-    // };
+    const handleProductDescription = (e) => {
+        setInputDescription(e.target.value);
+    };
 
-    //  const addTaskBtn = () => {
-    //      if (inputProductName.trim().length > 0) {
-    //      // Crea una nueva tarea con un id nuevo (único)
-    //          const newProduct = {
-    //              id: generateId(),
-    //              title: inputProductName,
-    //              description: inputDescription,
-    //              price: InputPrice,
-    //         };
+    const handleProductPrice = (e) => {
+        setInputPrice(e.target.value);
+    };
 
-    //      // Actualiza la lista de tareas
-    //      localStorage.setItemValue('products', newProduct);
+    const addNewProduct = () => {
+
+        //Verificamos que funcione el button con un console
+        console.log("Tocaste agregar nuevo producto");
+        console.log(localStorage.value.products);
+        //Creamos una copia del local storage para poder manipularlo
+        const productos = localStorage.value.products;
+        console.log("Copia de local storage", productos);
+
+        if (inputProductName.trim().length > 0) {
+            console.log("Se creo un nuevo nombre de producto: ", inputProductName);
+            console.log("Se creo una nueva descripcion de producto: ", inputDescription);
+            console.log("Se creo un nuevo precio de producto: ", inputPrice);
+         // Crea una nueva tarea con un id nuevo (único)
+        }
+
+        const newProduct = {
+            id: generateId(),
+            title: inputProductName,
+            description: inputDescription,
+            price: inputPrice,
+       };
+
+        console.log(newProduct);
+        setNewProductArray({productos})
+        console.log("Nuevo array", newProductArray);
+        setNewProductArray({productos, newProduct})
+        //Actualiza la lista de tareas
+        //localStorage.setItemValue('products', newProduct);
+    };
+
+    //      
     //      setTaskArray([...taskArray, newTask]);
 
     //         // Resetear el input de "Nueva tarea"
@@ -97,24 +120,24 @@ const Container = () => {
             </ProductList>
             <ProductForm>
                 <h2>Creación de productos</h2>
-                {/* <input
+                <input
                     type="text"
                     id='newName'
                     placeholder='Nombre'
                     value={inputProductName}
                     onChange={(e) => handleProductName(e)}
                     className='form-input'/>
-                    <input type="text"
+                <input type="text"
                     placeholder='Descripción'
                     value={inputDescription}
                     onChange={(e) => handleProductDescription(e)}
                     className='form-input'/>
-                    <input type="number"
+                <input type="number"
                     placeholder='Precio'
                     value={inputPrice}
                     onChange={(e) => handleProductPrice(e)}
                     className='form-input'/>
-                <button onClick={} className='form-btn material-symbols-outlined'>Agregar Producto</button> */}
+                <button onClick={addNewProduct} className='form-btn material-symbols-outlined'>Agregar Producto</button>
             </ProductForm>
         </Box>
     );
