@@ -11,12 +11,11 @@ import { useState } from "react";
 const Container = () => {
 
     const localStorage = useLocalStorage({products});
+    const productos = localStorage.value.products;
 
     const handleRemoveItem = (key) => {
 
         console.log(localStorage.value.products);
-
-        const productos = localStorage.value.products;
 
         console.log(productos[0]); // verifico que cargó la info de localstorage
 
@@ -27,7 +26,6 @@ const Container = () => {
 
     const generateId = () => {
          let maxId = 0;
-         const productos = localStorage.value.products;
          productos.forEach( (product) => {
          if (product.id > maxId) {
              maxId = product.id;
@@ -41,7 +39,7 @@ const Container = () => {
     const [inputProductName , setInputProductName] = useState("");
     const [inputDescription , setInputDescription] = useState("");
     const [inputPrice , setInputPrice] = useState("");
-    const [newProductArray , setNewProductArray] = useState("");
+    const [newProductArray , setNewProductArray] = useState(productos);
 
     const handleProductName = (e) => {
     setInputProductName(e.target.value);
@@ -71,23 +69,23 @@ const Container = () => {
          // Crea una nueva tarea con un id nuevo (único)
         }
 
-        const newProduct = {
-            id: generateId(),
-            title: inputProductName,
-            description: inputDescription,
-            price: inputPrice,
-       };
+        const newProduct = [
+            {
+                id: generateId(),
+                name: inputProductName,
+                description: inputDescription,
+                price: inputPrice,
+            },
+        ]
 
         console.log(newProduct);
-        setNewProductArray({productos})
-        console.log("Nuevo array", newProductArray);
-        setNewProductArray({productos, newProduct})
-        //Actualiza la lista de tareas
-        //localStorage.setItemValue('products', newProduct);
-    };
 
-    //      
-    //      setTaskArray([...taskArray, newTask]);
+        console.log("Nuevo array", newProductArray);
+        setNewProductArray([...newProductArray, ...newProduct]);
+        console.log("Nuevo array modificado", newProductArray);
+        //Actualiza la lista de tareas
+        localStorage.setItemValue('products', newProductArray);
+    };
 
     //         // Resetear el input de "Nueva tarea"
     //         setInputProductName("");
