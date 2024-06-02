@@ -1,0 +1,39 @@
+.form {
+    width: 70%;
+    height: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    h2 {
+        background-color: rgba(14, 14, 14, 0.473);
+        color: #abd809;
+        width: 100%;
+        min-height: 30px;
+        margin: .2rem;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        margin: .1rem;
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: .2rem;
+    }
+
+    &__button {
+        .material-symbols-outlined {
+            margin: .2rem;
+            font-size: 14px;
+        }
+
+    }
+}

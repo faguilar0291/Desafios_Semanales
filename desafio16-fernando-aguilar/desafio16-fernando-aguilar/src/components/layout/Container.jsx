@@ -4,29 +4,29 @@ import { products } from "../../data/products";
 import useLocalStorage from "../hooks/useLocalStorage";
 import ProductList from "./ProductList"
 import ProductForm from "./ProductForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 //51:34
 
 const Container = () => {
 
     const localStorage = useLocalStorage({products});
-    const productos = localStorage.value.products;
+    const [newProductArray , setNewProductArray] = useState(localStorage.value.products);
+
+    useEffect(() => {
+        localStorage.setItemValue('products', newProductArray);
+    }, [newProductArray]);
 
     const handleRemoveItem = (key) => {
 
-        console.log(localStorage.value.products);
+        const filteredProducts = newProductArray.filter(product => product.id !== key);
 
-        console.log(productos[0]); // verifico que cargó la info de localstorage
-
-        const filteredProducts = productos.filter(product => product.name !== key);
-
-        localStorage.setItemValue('products', filteredProducts);
+        setNewProductArray(filteredProducts);
     };
 
     const generateId = () => {
          let maxId = 0;
-         productos.forEach( (product) => {
+         newProductArray.forEach( (product) => {
          if (product.id > maxId) {
              maxId = product.id;
              }
@@ -39,7 +39,6 @@ const Container = () => {
     const [inputProductName , setInputProductName] = useState("");
     const [inputDescription , setInputDescription] = useState("");
     const [inputPrice , setInputPrice] = useState("");
-    const [newProductArray , setNewProductArray] = useState(productos);
 
     const handleProductName = (e) => {
     setInputProductName(e.target.value);
@@ -57,85 +56,143 @@ const Container = () => {
 
         //Verificamos que funcione el button con un console
         console.log("Tocaste agregar nuevo producto");
-        console.log(localStorage.value.products);
-        //Creamos una copia del local storage para poder manipularlo
-        const productos = localStorage.value.products;
-        console.log("Copia de local storage", productos);
 
         if (inputProductName.trim().length > 0) {
-            console.log("Se creo un nuevo nombre de producto: ", inputProductName);
-            console.log("Se creo una nueva descripcion de producto: ", inputDescription);
-            console.log("Se creo un nuevo precio de producto: ", inputPrice);
-         // Crea una nueva tarea con un id nuevo (único)
+
+            const newProduct = {
+                    id: generateId(),
+                    name: inputProductName,
+                    description: inputDescription,
+                    price: inputPrice,
+                    fav: false,
+                };
+
+                const updatedProducts = [...newProductArray, newProduct];
+                setNewProductArray(updatedProducts);
+
+                setInputProductName("");
+                setInputDescription("");
+                setInputPrice("");
         }
 
-        const newProduct = [
-            {
-                id: generateId(),
-                name: inputProductName,
-                description: inputDescription,
-                price: inputPrice,
-            },
-        ]
+        console.log(newProductArray);
 
-        console.log(newProduct);
-
-        console.log("Nuevo array", newProductArray);
-        setNewProductArray([...newProductArray, ...newProduct]);
-        console.log("Nuevo array modificado", newProductArray);
-        //Actualiza la lista de tareas
-        localStorage.setItemValue('products', newProductArray);
     };
 
-    //         // Resetear el input de "Nueva tarea"
-    //         setInputProductName("");
-    //         setInputDescription("");
-    //         setInputPrice("");
-    //     }
+    const clearItems = () => {
+        setNewProductArray([]);
+    };
 
-    // };
+    const modifyProductName = (id, value) => {
+        const index = newProductArray.findIndex( (product) => product.id === id);
+        const productArray = [...newProductArray];
+        productArray[index].name = value;
+        setNewProductArray(productArray);
+    };
 
+    const modifyProductDescription = (id, value) => {
+        const index = newProductArray.findIndex( (product) => product.id === id);
+        const productArray = [...newProductArray];
+        productArray[index].description = value;
+        setNewProductArray(productArray);
+    };
+
+    const modifyProductPrice = (id, value) => {
+        const index = newProductArray.findIndex( (product) => product.id === id);
+        const productArray = [...newProductArray];
+        productArray[index].price = value;
+        setNewProductArray(productArray);
+    };
+
+    const favProduct = (id) => {
+
+        console.log(id);
+        const index = newProductArray.findIndex( (product) => product.id === id);
+        console.log("Este es el index: " + index);
+
+        const favProductList = [...newProductArray];
+        console.log("Esta es la favProductlist", favProductList);
+
+        console.log("Este es el producto indexado", favProductList[index]);
+        console.log("Este es el contenido del fav del producto anterior", favProductList[index].fav);
+        favProductList[index].fav = !favProductList[index].fav;
+        console.log("Asi queda el fav del producto", favProductList[index].fav);
+
+        setNewProductArray(favProductList);
+        console.log(id);
+
+        console.log(favProductList[id]);
+    };
 
 
     return (
         <Box className="container">
                 {/* custom hook useLocalStorage */}
-                <Box>
-                    <Box>
-                        <button onClick={() => localStorage.clearItems()}>Clear</button>
-                    </Box>
-                </Box>
             <h2 className="container__title">Lista de productos</h2>
             <ProductList>
-                {localStorage.value.products.map( (product) => (
-                    <Box key={product.name} className="container__products">
-                        <p>{product.name}</p>
-                        <p>{product.description}</p>
-                        <p>{product.price}</p>
-                        <button onClick={() => handleRemoveItem(product.name)}>Remove</button>
-                    </Box>
-                ))}
+                <Box className="container__list">
+                    {newProductArray.map( (product) => (
+                        <Box key={product.id} className={product.fav ? 'container__list--products favProduct' : 'container__list--products'}>
+                            <div className="container__list--products-info">
+                                <p>Producto: 
+                                    <input className="products-name"
+                                        type="text"
+                                        size={15}
+                                        value={product.name}
+                                        onChange={ (e) => modifyProductName(product.id, e.target.value)}
+                                    />
+                                </p>
+                                <p>Descripción: 
+                                    <input className="products-description"
+                                        type="text"
+                                        size={15}
+                                        value={product.description}
+                                        onChange={ (e) => modifyProductDescription(product.id, e.target.value)}
+                                        />
+                                </p>
+                                <p>Precio: 
+                                    <input className="products-price"
+                                        type="number"
+                                        size={5}
+                                        value={product.price}
+                                        onChange={ (e) => modifyProductPrice(product.id, e.target.value)}
+                                        />
+                                </p>
+                            </div>
+                            <div className="container__list--products-buttons">
+                                <button className='task-btn material-symbols-outlined' onClick={() => handleRemoveItem(product.id)}>delete</button>
+                                <button className='task-btn material-symbols-outlined' onClick={() => favProduct(product.id)}>star</button>
+                            </div>
+                        </Box>
+                    ))}
+                </Box>
             </ProductList>
             <ProductForm>
-                <h2>Creación de productos</h2>
-                <input
-                    type="text"
-                    id='newName'
-                    placeholder='Nombre'
-                    value={inputProductName}
-                    onChange={(e) => handleProductName(e)}
-                    className='form-input'/>
-                <input type="text"
-                    placeholder='Descripción'
-                    value={inputDescription}
-                    onChange={(e) => handleProductDescription(e)}
-                    className='form-input'/>
-                <input type="number"
-                    placeholder='Precio'
-                    value={inputPrice}
-                    onChange={(e) => handleProductPrice(e)}
-                    className='form-input'/>
-                <button onClick={addNewProduct} className='form-btn material-symbols-outlined'>Agregar Producto</button>
+                <Box className="form">
+                    <div className="form__container">
+                        <h2>Creación de productos</h2>
+                        <input
+                            type="text"
+                            id='newName'
+                            placeholder='Nombre'
+                            value={inputProductName}
+                            onChange={handleProductName}
+                            className='form-input'/>
+                        <input type="text"
+                            placeholder='Descripción'
+                            value={inputDescription}
+                            onChange={handleProductDescription}
+                            className='form-input'/>
+                        <input type="number"
+                            placeholder='Precio'
+                            value={inputPrice}
+                            onChange={handleProductPrice}
+                            className='form-input'/>
+                    </div>
+                    <div className="form__button">
+                        <button onClick={addNewProduct} className='form-btn material-symbols-outlined'>Agregar Producto</button>
+                    </div>
+                </Box>
             </ProductForm>
         </Box>
     );
